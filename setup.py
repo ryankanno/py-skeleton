@@ -36,7 +36,7 @@ patterns = {
 }
 
 
-with open(os.path.join(here, 'FILE_GOES_HERE'), 'r') as f:
+with open(os.path.join(here, 'py_skeleton/__init__.py'), 'r') as f:
     for line in f:
         for pattern, handler in patterns.items():
             m = pattern.match(line.strip())
@@ -58,16 +58,16 @@ classifiers = [
 ]
 
 setup(
-    name='',
+    name='py-skeleton',
     version=meta['VERSION'],
-    description='',
+    description='Python project skeleton',
     long_description=readme + '\n\n' + changes,
     author=meta['author'],
     author_email=meta['email'],
-    url="",
+    url="https://github.com/ryankanno/py-skeleton",
     packages=packages,
     package_data={'': ['LICENSE']},
-    package_dir={'': ''},
+    package_dir={'py_skeleton': 'py_skeleton'},
     install_requires=requires,
     license=meta['license'],
     tests_require=tests_require,
