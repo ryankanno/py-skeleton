@@ -36,7 +36,7 @@ patterns = {
 }
 
 
-with open(os.path.join(here, 'py_skeleton/__init__.py'), 'r') as f:
+with open(os.path.join(here, 'FILE_GOES_HERE'), 'r') as f:
     for line in f:
         for pattern, handler in patterns.items():
             m = pattern.match(line.strip())
@@ -45,7 +45,7 @@ with open(os.path.join(here, 'py_skeleton/__init__.py'), 'r') as f:
 
 # Requires
 
-requires = ['jinja2']
+requires = []
 tests_require = ['flake8', 'mock', 'nose', 'nosexcover']
 
 with open(os.path.join(here, 'README.rst')) as f:
@@ -58,16 +58,16 @@ classifiers = [
 ]
 
 setup(
-    name='py-skeleton',
+    name='',
     version=meta['VERSION'],
-    description='Python project skeleton',
+    description='',
     long_description=readme + '\n\n' + changes,
     author=meta['author'],
     author_email=meta['email'],
-    url="https://github.com/ryankanno/py-skeleton",
+    url="",
     packages=packages,
     package_data={'': ['LICENSE']},
-    package_dir={'py_skeleton': 'py_skeleton'},
+    package_dir={'': ''},
     install_requires=requires,
     license=meta['license'],
     tests_require=tests_require,
