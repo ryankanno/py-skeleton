@@ -9,7 +9,7 @@ from py_utilities.fs.fs_utilities import mkdir_p
 
 
 def render_template_to_target(env, tmpl_src, context_dict, tmpl_target,
-        tmpl_ext='.tmpl'):
+                              tmpl_ext='.tmpl'):
     tmpl = env.get_template(tmpl_src)
     contents = tmpl.render(context_dict)
     dir = os.path.dirname(tmpl_target)
