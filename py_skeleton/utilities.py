@@ -5,12 +5,16 @@ import fnmatch
 import os
 from py_utilities.fs.file_utilities import iter_files
 from py_utilities.fs.file_utilities import write_file
+from py_utilities.fs.fs_utilities import mkdir_p
 
 
-def render_template_to_target(env, tmpl_src, context_dict, tmpl_target):
+def render_template_to_target(env, tmpl_src, context_dict, tmpl_target,
+        tmpl_ext='.tmpl'):
     tmpl = env.get_template(tmpl_src)
     contents = tmpl.render(context_dict)
-    write_file(tmpl_target, contents)
+    dir = os.path.dirname(tmpl_target)
+    mkdir_p(dir)
+    write_file(tmpl_target.replace(tmpl_ext, ''), contents)
 
 
 def iter_files_filter(dir_path, filter_pattern):

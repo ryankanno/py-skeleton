@@ -2,13 +2,14 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-# from jinja2 import Environment
-# from jinja2 import FileSystemLoader
+from jinja2 import Environment
+from jinja2 import FileSystemLoader
 import logging
+import os
 import sys
 import traceback
 from utilities import iter_files_filter
-# from utilities import render_template_to_target
+from utilities import render_template_to_target
 
 LOG_FORMAT = '%(asctime)s %(levelname)s %(message)s'
 
@@ -16,19 +17,23 @@ LOG_FORMAT = '%(asctime)s %(levelname)s %(message)s'
 def init_argparser():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('-s', '--source', action='store',
-                        help='template source')
+                        help='template source', required=True)
     parser.add_argument('-d', '--destination', action='store',
-                        help='destination')
+                        help='destination', required=True)
     parser.add_argument('-v', '--verbose', action='store_true',
                         help='increase chattiness of script')
     return parser
 
 
 def do_work_son(args):
-    # loader = FileSystemLoader(args.source)
-    # env = Environment(loader=loader)
+    loader = FileSystemLoader(args.source)
+    env = Environment(loader=loader)
     for file in iter_files_filter(args.source, "*.tmpl"):
-        print file
+        render_template_to_target(
+            env,
+            file.replace(args.source, ""),
+            {},
+            os.path.join(args.destination, file.replace(args.source, "")))
 
 
 def main(argv=None):
