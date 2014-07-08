@@ -16,6 +16,8 @@ LOG_FORMAT = '%(asctime)s %(levelname)s %(message)s'
 
 def init_argparser():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('-c', '--config', action='store',
+                        help='template configuration data', required=True)
     parser.add_argument('-s', '--source', action='store',
                         help='template source', required=True)
     parser.add_argument('-d', '--destination', action='store',

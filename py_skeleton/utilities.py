@@ -12,8 +12,7 @@ def render_template_to_target(env, tmpl_src, context_dict, tmpl_target,
                               tmpl_ext='.tmpl'):
     tmpl = env.get_template(tmpl_src)
     contents = tmpl.render(context_dict)
-    dir = os.path.dirname(tmpl_target)
-    mkdir_p(dir)
+    mkdir_p(os.path.dirname(tmpl_target))
     write_file(tmpl_target.replace(tmpl_ext, ''), contents)
 
 
