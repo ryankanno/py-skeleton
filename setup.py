@@ -45,7 +45,7 @@ with open(os.path.join(here, 'py_skeleton/__init__.py'), 'r') as f:
 
 # Requires
 
-requires = ['jinja2', 'py-utilities']
+requires = ['jinja2', 'py-utilities', 'py-configurator==0.0.2']
 tests_require = ['flake8', 'mock', 'nose', 'nosexcover']
 
 with open(os.path.join(here, 'README.rst')) as f:

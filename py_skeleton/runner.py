@@ -6,6 +6,8 @@ from jinja2 import Environment
 from jinja2 import FileSystemLoader
 import logging
 import os
+from py_configurator.backends import get_provider
+from py_configurator.config import Config
 import sys
 import traceback
 from utilities import iter_files_filter
@@ -30,11 +32,12 @@ def init_argparser():
 def do_work_son(args):
     loader = FileSystemLoader(args.source)
     env = Environment(loader=loader)
+    config = Config(get_provider(args.config))
     for file in iter_files_filter(args.source, "*.tmpl"):
         render_template_to_target(
             env,
             file.replace(args.source, ""),
-            {},
+            config.to_dict(),
             os.path.join(args.destination, file.replace(args.source, "")))
 
 
