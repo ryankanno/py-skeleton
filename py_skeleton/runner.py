@@ -24,6 +24,8 @@ def init_argparser():
                         help='template source', required=True)
     parser.add_argument('-d', '--destination', action='store',
                         help='destination', required=True)
+    parser.add_argument('-e', '--ext', action='store',
+                        help='template extension', default=".tmpl")
     parser.add_argument('-v', '--verbose', action='store_true',
                         help='increase chattiness of script')
     return parser
@@ -33,12 +35,13 @@ def do_work_son(args):
     loader = FileSystemLoader(args.source)
     env = Environment(loader=loader)
     config = Config(get_provider(args.config))
-    for file in iter_files_filter(args.source, "*.tmpl"):
+    for file in iter_files_filter(args.source, "*{0}".format(args.ext)):
         render_template_to_target(
             env,
             file.replace(args.source, ""),
             config.to_dict(),
-            os.path.join(args.destination, file.replace(args.source, "")))
+            os.path.join(args.destination, file.replace(args.source, "")),
+            args.ext)
 
 
 def main(argv=None):

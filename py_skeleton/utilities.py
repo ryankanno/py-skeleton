@@ -8,8 +8,13 @@ from py_utilities.fs.file_utilities import write_file
 from py_utilities.fs.fs_utilities import mkdir_p
 
 
-def render_template_to_target(env, tmpl_src, context_dict, tmpl_target,
-                              tmpl_ext='.tmpl'):
+def render_template_to_target(
+        env,
+        tmpl_src,
+        context_dict,
+        tmpl_target,
+        tmpl_ext):
+
     tmpl = env.get_template(tmpl_src)
     contents = tmpl.render(context_dict)
     mkdir_p(os.path.dirname(tmpl_target))
