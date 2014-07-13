@@ -13,7 +13,7 @@ import traceback
 from utilities import iter_files_filter
 from utilities import render_template_to_target
 
-LOG_FORMAT = '%(asctime)s %(levelname)s %(message)s'
+LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 
 
 def init_argparser():
@@ -35,6 +35,7 @@ def do_work_son(args):
     loader = FileSystemLoader(args.source)
     env = Environment(loader=loader)
     config = Config(get_provider(args.config))
+
     for file in iter_files_filter(args.source, "*{0}".format(args.ext)):
         render_template_to_target(
             env,
