@@ -36,7 +36,7 @@ patterns = {
 }
 
 
-with open(os.path.join(here, 'FILE_GOES_HERE'), 'r') as f:
+with open(os.path.join(here, '__init__.py'), 'r') as f:
     for line in f:
         for pattern, handler in patterns.items():
             m = pattern.match(line.strip())
