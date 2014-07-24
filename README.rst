@@ -24,3 +24,4 @@ todo
 
 - logging
 - add other project templates I use
+- add ability to 'templatize' directories
