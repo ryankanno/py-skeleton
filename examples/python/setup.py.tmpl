@@ -36,7 +36,7 @@ patterns = {
 }
 
 
-with open(os.path.join(here, '__init__.py'), 'r') as f:
+with open(os.path.join(here, '{{ Project.module }}/__init__.py'), 'r') as f:
     for line in f:
         for pattern, handler in patterns.items():
             m = pattern.match(line.strip())
@@ -58,13 +58,13 @@ classifiers = [
 ]
 
 setup(
-    name='',
+    name='{{ Project.name }}',
     version=meta['VERSION'],
-    description='',
+    description=' {{ Project.description }}',
     long_description=readme + '\n\n' + changes,
     author=meta['author'],
     author_email=meta['email'],
-    url="",
+    url="{{ Project.url }} ",
     packages=packages,
     package_data={'': ['LICENSE']},
     package_dir={'': ''},
