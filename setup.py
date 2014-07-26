@@ -9,7 +9,9 @@ try:
 except ImportError:
     from distutils.core import setup
 
-packages = []
+packages = [
+    'py_skeleton',
+]
 
 here = os.path.dirname(os.path.realpath(__file__))
 
