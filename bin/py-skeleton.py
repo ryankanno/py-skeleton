@@ -8,10 +8,10 @@ import logging
 import os
 from py_configurator.backends import get_provider
 from py_configurator.config import Config
+from py_skeleton.utilities import iter_files_filter
+from py_skeleton.utilities import render_template_to_target
 import sys
 import traceback
-from utilities import iter_files_filter
-from utilities import render_template_to_target
 
 LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 
