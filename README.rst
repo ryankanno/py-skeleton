@@ -1,6 +1,12 @@
 py-skeleton
 ===========
 
+.. image:: https://travis-ci.org/ryankanno/py-skeleton.png?branch=master
+   :target: https://travis-ci.org/ryankanno/py-skeleton
+
+.. image:: https://coveralls.io/repos/ryankanno/py-skeleton.png
+   :target: https://coveralls.io/r/ryankanno/py-skeleton
+
 Are you:
 
 - Starting a new project by copying an old one?
