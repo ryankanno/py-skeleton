@@ -23,11 +23,11 @@ basic usage
 
 .. code:: bash
 
-    python py_skeleton/runner.py -s ./examples/ -d ./build -c examples/python.ini -e .tmpl
+    py-skeleton.py -s ./examples/ -d ./build -c examples/python.ini -e .tmpl
 
 todo
 ====
 
+- add ability to 'templatize' directories
 - logging
 - add other project templates I use
-- add ability to 'templatize' directories
