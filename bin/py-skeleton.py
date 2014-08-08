@@ -10,6 +10,7 @@ from py_configurator.backends import get_provider
 from py_configurator.config import Config
 from py_skeleton.utilities import iter_files_filter
 from py_skeleton.utilities import render_template_to_target
+from py_skeleton.utilities import resolve_templated_file_path
 import sys
 import traceback
 
@@ -37,11 +38,14 @@ def do_work_son(args):
     config = Config(get_provider(args.config))
 
     for file in iter_files_filter(args.source, "*{0}".format(args.ext)):
+        src = file.replace(args.source, "")
+        target = resolve_templated_file_path(src, config)
+
         render_template_to_target(
             env,
-            file.replace(args.source, ""),
+            src,
             config.to_dict(),
-            os.path.join(args.destination, file.replace(args.source, "")),
+            os.path.join(args.destination, target),
             args.ext)
 
 
