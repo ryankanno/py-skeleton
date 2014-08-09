@@ -16,3 +16,4 @@ ignore_errors = True
 omit =
     */python?.?/*
     */tests/*
+    py_skeleton/__init__.py
