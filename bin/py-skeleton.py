@@ -34,7 +34,7 @@ def init_argparser():
 
 def do_work_son(args):
     loader = FileSystemLoader(args.source)
-    env = Environment(loader=loader)
+    env = Environment(loader=loader, keep_trailing_newline=True)
     config = Config(get_provider(args.config))
 
     for file in iter_files_filter(args.source, "*{0}".format(args.ext)):
