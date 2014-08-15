@@ -3,6 +3,7 @@
 
 from nose.tools import ok_
 from nose_parameterized import parameterized
+from py_skeleton.utilities import resolve_templated_file_path
 from py_skeleton.utilities import TEMPLATED_RE
 import unittest
 
@@ -29,5 +30,9 @@ class TestUtilities(unittest.TestCase):
         m = TEMPLATED_RE.search(path)
         if m:
             ok_(m.group(2).strip() == config_key)
+
+    def test_resolve_templated_file_path_with_no_match_returns_self(self):
+        path = "/foo/bar/is/not/templated"
+        ok_(path, resolve_templated_file_path(path, None))
 
 # vim: filetype=python
