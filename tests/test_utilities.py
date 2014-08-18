@@ -1,14 +1,30 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from jinja2 import Environment
+from jinja2 import FileSystemLoader
+from nose.tools import eq_
 from nose.tools import ok_
 from nose_parameterized import parameterized
+import os
+from py_skeleton.utilities import get_template_contents
 from py_skeleton.utilities import resolve_templated_file_path
 from py_skeleton.utilities import TEMPLATED_RE
 import unittest
 
 
 class TestUtilities(unittest.TestCase):
+
+    def setUp(self):
+        self.cwd = os.path.dirname(os.path.realpath(__file__))
+        self.tmpl_dir = os.path.join(self.cwd, '.', 'data')
+
+    def test_get_template_contents(self):
+        loader = FileSystemLoader(self.tmpl_dir)
+        env = Environment(loader=loader, keep_trailing_newline=True)
+        context_dict = {"Default": {"Name": "Ryan"}}
+        contents = get_template_contents(env, 'test.tmpl', context_dict)
+        eq_(contents, "Hello, Ryan\n")
 
     @parameterized.expand([
         ("/foo/bar"),

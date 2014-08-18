@@ -18,10 +18,14 @@ def render_template_to_target(
         tmpl_target,
         tmpl_ext):
 
-    tmpl = env.get_template(tmpl_src)
-    contents = tmpl.render(context_dict)
+    contents = get_template_contents(env, tmpl_src, context_dict)
     mkdir_p(os.path.dirname(tmpl_target))
     write_file(tmpl_target.replace(tmpl_ext, ''), contents)
+
+
+def get_template_contents(env, tmpl_src, context_dict):
+    tmpl = env.get_template(tmpl_src)
+    return tmpl.render(context_dict)
 
 
 def iter_files_filter(dir_path, filter_pattern):

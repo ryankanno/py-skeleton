@@ -4,12 +4,12 @@ py-skeleton
 .. image:: https://travis-ci.org/ryankanno/py-skeleton.png?branch=master
    :target: https://travis-ci.org/ryankanno/py-skeleton
 
-.. image:: https://coveralls.io/repos/ryankanno/py-skeleton.png
+.. image:: https://coveralls.io/repos/ryankanno/py-skeleton/badge.png
    :target: https://coveralls.io/r/ryankanno/py-skeleton
 
 Are you:
 
-- Starting a new project by copying an old one?
+- Starting new projects by copying old ones?
 - Wishing you could use someone else's project as a starter template?
 - Confused at how to start "Project FooBar"?
 
