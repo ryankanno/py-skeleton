@@ -7,7 +7,10 @@ from nose.tools import eq_
 from nose.tools import ok_
 from nose_parameterized import parameterized
 import os
+from py_configurator.backends.dict import DictionaryProviderBackend
+from py_configurator.config import Config
 from py_skeleton.utilities import get_template_contents
+from py_skeleton.utilities import iter_files_filter
 from py_skeleton.utilities import resolve_templated_file_path
 from py_skeleton.utilities import TEMPLATED_RE
 import unittest
@@ -25,6 +28,20 @@ class TestUtilities(unittest.TestCase):
         context_dict = {"Default": {"Name": "Ryan"}}
         contents = get_template_contents(env, 'test.tmpl', context_dict)
         eq_(contents, "Hello, Ryan\n")
+
+    def test_iter_files_filter_returns_files_with_appropriate_filter(self):
+        tmp_dir = os.path.join(self.tmpl_dir, 'foo')
+        num_files = 0
+        for file in iter_files_filter(tmp_dir, "*.tmpl"):
+            num_files += 1
+        ok_(num_files == 3)
+
+    def test_iter_files_filter_returns_no_files_with_not_found_filter(self):
+        tmp_dir = os.path.join(self.tmpl_dir, 'foo')
+        num_files = 0
+        for file in iter_files_filter(tmp_dir, "*.conf"):
+            num_files += 1
+        ok_(num_files == 0)
 
     @parameterized.expand([
         ("/foo/bar"),
@@ -50,5 +67,13 @@ class TestUtilities(unittest.TestCase):
     def test_resolve_templated_file_path_with_no_match_returns_self(self):
         path = "/foo/bar/is/not/templated"
         ok_(path, resolve_templated_file_path(path, None))
+
+    def test_resolve_templated_file_path_with_match_returns_templated(self):
+        path = "/foo/bar/is/templated/{{foo}}"
+        config = Config(DictionaryProviderBackend({'foo': 'bartime'}))
+        ok_(path != resolve_templated_file_path(path, config))
+        ok_("/foo/bar/is/templated/bartime" ==
+            resolve_templated_file_path(path, config))
+
 
 # vim: filetype=python

@@ -17,7 +17,6 @@ I'm always starting a new project by cutting and pasting an old one. Skeleton
 helps you get started with any project.  Uses `jinja2 <http://jinja.pocoo.org/>`_
 and `py-configurator <https://github.com/ryankanno/py-configurator>`_.
 
-
 basic usage
 ===========
 
