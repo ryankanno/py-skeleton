@@ -13,8 +13,8 @@ Are you:
 - Wishing you could use someone else's project as a starter template?
 - Confused at how to start "Project FooBar"?
 
-I'm always starting a new project by cutting and pasting an old one. Skeleton
-helps you get started with any project.  Uses `jinja2 <http://jinja.pocoo.org/>`_
+I'm always starting a new python projects by cutting and pasting an old one.
+py-skeleton helps you fix that.  Uses `jinja2 <http://jinja.pocoo.org/>`_
 and `py-configurator <https://github.com/ryankanno/py-configurator>`_.
 
 basic usage
@@ -22,7 +22,7 @@ basic usage
 
 .. code:: bash
 
-    py-skeleton.py -s ./examples/ -d ./build -c examples/python.ini -e .tmpl
+    py-skeleton.py --source ./examples/ --destination ./build --config examples/python.ini --ext .tmpl
 
 todo
 ====
