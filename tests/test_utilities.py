@@ -11,8 +11,10 @@ from py_configurator.backends.dict import DictionaryProviderBackend
 from py_configurator.config import Config
 from py_skeleton.utilities import get_template_contents
 from py_skeleton.utilities import iter_files_filter
+from py_skeleton.utilities import render_template_to_target
 from py_skeleton.utilities import resolve_templated_file_path
 from py_skeleton.utilities import TEMPLATED_RE
+import tempfile
 import unittest
 
 
@@ -42,6 +44,24 @@ class TestUtilities(unittest.TestCase):
         for file in iter_files_filter(tmp_dir, "*.conf"):
             num_files += 1
         ok_(num_files == 0)
+
+    def test_render_template_to_target(self):
+        temp_file = tempfile.NamedTemporaryFile()
+        loader = FileSystemLoader(self.tmpl_dir)
+        env = Environment(loader=loader, keep_trailing_newline=True)
+        context_dict = {"Default": {"Name": "Ryan"}}
+
+        render_template_to_target(
+            env,
+            'test.tmpl',
+            context_dict,
+            temp_file.name,
+            '.tmpl')
+
+        with temp_file as f:
+            f.seek(0)
+            contents = f.read()
+            eq_(contents, "Hello, Ryan\n")
 
     @parameterized.expand([
         ("/foo/bar"),
