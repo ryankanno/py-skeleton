@@ -32,6 +32,11 @@ basic usage
 - --destination is the directory path to where everything will end up
 - --config is the file path to where your configuration file lives
 
+templates
+=========
+
+To find an example project templates, please take a look at at `py-skeleton-templates <https://github.com/ryankanno/py-skeleton-templates`_.
+
 todo
 ====
 
