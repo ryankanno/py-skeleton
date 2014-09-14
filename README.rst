@@ -7,6 +7,8 @@ py-skeleton
 .. image:: https://coveralls.io/repos/ryankanno/py-skeleton/badge.png
    :target: https://coveralls.io/r/ryankanno/py-skeleton
 
+-----------
+
 Are you:
 
 - Starting new projects by copying old ones?
@@ -35,7 +37,7 @@ basic usage
 templates
 =========
 
-To find an example project templates, please take a look at at `py-skeleton-templates <https://github.com/ryankanno/py-skeleton-templates`_.
+To find an example project templates, please take a look at at `py-skeleton-templates <https://github.com/ryankanno/py-skeleton-templates>`_.
 
 todo
 ====
