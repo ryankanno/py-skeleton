@@ -37,7 +37,7 @@ basic usage
 templates
 =========
 
-To find an example project templates, please take a look at at `py-skeleton-templates <https://github.com/ryankanno/py-skeleton-templates>`_.
+To find an example project templates, please take a look at `py-skeleton-templates <https://github.com/ryankanno/py-skeleton-templates>`_.
 
 todo
 ====
