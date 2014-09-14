@@ -22,7 +22,15 @@ basic usage
 
 .. code:: bash
 
-    py-skeleton.py --source ./examples/ --destination ./build --config examples/python.ini --ext .tmpl
+    py-skeleton.py --source ../py-skeleton-templates/python/
+                   --ext .tmpl
+                   --destination ./build
+                   --config ./python.ini
+
+- --source is the directory path to your templates
+- --ext is the extension path for your templates
+- --destination is the directory path to where everything will end up
+- --config is the file path to where your configuration file lives
 
 todo
 ====
