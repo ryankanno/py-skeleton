@@ -44,3 +44,5 @@ todo
 
 - logging
 - add other project templates I use
+- remove py-utilities dependency
+- remove py-configurator dependency
