@@ -1,6 +1,9 @@
 py-skeleton
 ===========
 
+.. image:: https://badge.fury.io/py/py-skeleton.svg
+   :target: http://badge.fury.io/py/py-skeleton
+
 .. image:: https://travis-ci.org/ryankanno/py-skeleton.png?branch=master
    :target: https://travis-ci.org/ryankanno/py-skeleton
 
