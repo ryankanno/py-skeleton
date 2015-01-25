@@ -46,7 +46,7 @@ with open(os.path.join(here, 'py_skeleton/__init__.py'), 'r') as f:
 
 # Requires
 
-requires = ['jinja2', 'py-utilities', 'py-configurator==0.0.3']
+requires = ['jinja2', 'py-configurator==0.0.3']
 tests_require = ['flake8', 'mock', 'nose', 'nose-parameterized', 'nosexcover']
 
 with open(os.path.join(here, 'README.rst')) as f:
@@ -59,6 +59,8 @@ classifiers = [
     'Development Status :: 3 - Alpha',
     'Intended Audience :: Developers',
     'Programming Language :: Python',
+    'Programming Language :: Python :: 2.6',
+    'Programming Language :: Python :: 2.7',
     'License :: OSI Approved :: MIT License',
     'Topic :: Utilities'
 ]

@@ -61,7 +61,7 @@ class TestUtilities(unittest.TestCase):
         with temp_file as f:
             f.seek(0)
             contents = f.read()
-            eq_(contents, "Hello, Ryan\n")
+            eq_(contents.decode('utf-8'), "Hello, Ryan\n")
 
     @parameterized.expand([
         ("/foo/bar"),
