@@ -12,6 +12,13 @@ py-skeleton
 
 -----------
 
+2015-05-05
+==========
+
+**Stumbled upon `Cookie Cutter <https://github.com/audreyr/cookiecutter>`_ which is a fancier version of what I thought up here.  This repo will no longer be maintained.**
+
+-----------
+
 Are you:
 
 - Starting new projects by copying old ones?
