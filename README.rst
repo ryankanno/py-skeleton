@@ -15,7 +15,10 @@ py-skeleton
 2015-05-05
 ==========
 
-Stumbled upon `Cookie Cutter <https://github.com/audreyr/cookiecutter>`_ which is a fancier version of what I thought up here.  This repo will no longer be maintained.
+Stumbled upon `Cookie Cutter <https://github.com/audreyr/cookiecutter>`_ which is a fancier version of what I thought up here.
+Like this project, Cookie Cutter also uses `Jinja2 <https://github.com/mitsuhiko/jinja2>`_ as the underlying templating mechanism.
+This repo will no longer be maintained as I'll be converting `py-skeleton-templates <https://github.com/ryankanno/py-skeleton-templates>`_ to 
+`cookiecutter-py <https://github.com/ryankanno/cookiecutter-py>`_.
 
 -----------
 
